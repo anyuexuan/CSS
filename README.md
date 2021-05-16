@@ -13,7 +13,7 @@ Pytorch
 ### CIFAR-FS
 
 - Change directory to `./filelists/cifar`
-
+- Download [CIFAR-FS](https://drive.google.com/file/d/1i4atwczSI9NormW5SynaHa1iVN1IaOcs/view)
 - run `source ./cifar.sh`
 
 ### CUB
