@@ -1,9 +1,7 @@
 from utils.utils import *
 from methods.CSS import CSS
 
-datasets = ['cifar', 'CUB', 'miniImagenet', 'cross', 'omniglot', 'cross_char',
-            'fc100']  # CUB/omniglot/miniImagenet/cross/omniglot/cifar
-# datasets = ['cifar']
+datasets = ['cifar', 'CUB', 'miniImagenet'] 
 
 classification_head = 'cosine'
 
