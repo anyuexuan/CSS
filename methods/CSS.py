@@ -129,7 +129,7 @@ class CSS(MetaTemplate):
 
     def f(self, x):
         # x:[N*(S+Q),n_channel,h,w]
-        x = self.feature_extractor(x)
+        x = self.ssl_feature_extractor(x)
         x = self.projection_mlp_1(x)
         x = self.projection_mlp_2(x)
         return x
