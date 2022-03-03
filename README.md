@@ -14,18 +14,18 @@ Pytorch
 
 - Change directory to `./filelists/cifar`
 - Download [CIFAR-FS](https://drive.google.com/file/d/1i4atwczSI9NormW5SynaHa1iVN1IaOcs/view)
-- run `source ./cifar.sh`
+- run `bash ./cifar.sh`
 
 ### CUB
 
 - Change directory to `./filelists/CUB`
 
-- run `source ./download_CUB.sh`
+- run `bash ./download_CUB.sh`
 
 ### mini-ImageNet
 
 - Change directory to `./filelists/miniImagenet`
-- run `source ./download_miniImagenet.sh`
+- run `bash ./download_miniImagenet.sh`
 
 ## Running
 
