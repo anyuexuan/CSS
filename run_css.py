@@ -1,7 +1,7 @@
 from utils.utils import *
 from methods.CSS import CSS
 
-datasets = ['cifar', 'CUB', 'miniImagenet'] 
+datasets = ['cifar', 'CUB', 'miniImagenet']
 
 classification_head = 'cosine'
 
@@ -48,9 +48,11 @@ for dataset in datasets:
         if use_cuda:
             model = model.cuda()
         max_acc = 0
+        optimizer = torch.optim.Adam([{'params': model.feature_extractor.parameters(), 'lr': 1e-3},
+                                      {'params': model.projection_mlp_1.parameters(), 'lr': 1e-6}])
         for pre_epoch in range(0, pre_train_epoch):
             model.train()
-            model.pre_train_loop(pre_epoch, base_loader, None)  # model are called by reference, no need to return
+            model.pre_train_loop(pre_epoch, base_loader, optimizer)  # model are called by reference, no need to return
             if not os.path.isdir(checkpoint_dir):
                 os.makedirs(checkpoint_dir)
             model.eval()
@@ -78,9 +80,13 @@ for dataset in datasets:
         tmp = torch.load(outfile)
         model.load_state_dict(tmp['state'])
         max_acc = 0
+        optimizer = torch.optim.Adam([{'params': model.ssl_feature_extractor.parameters(), 'lr': 1e-3},
+                                      {'params': model.projection_mlp_1.parameters(), 'lr': 1e-3},
+                                      {'params': model.projection_mlp_2.parameters(), 'lr': 1e-3},
+                                      {'params': model.prediction_mlp.parameters(), 'lr': 1e-3}, ])
         for ssl_epoch in range(0, ssl_train_epoch):
             model.train()
-            model.ssl_train_loop(ssl_epoch, base_loader, None)
+            model.ssl_train_loop(ssl_epoch, base_loader, optimizer)
             model.eval()
             acc = model.ssl_test_loop(val_loader)
             if acc > max_acc:
@@ -104,9 +110,12 @@ for dataset in datasets:
         tmp = torch.load(outfile)
         model.load_state_dict(tmp['state'])
         max_acc = 0
+        optimizer = torch.optim.Adam([{'params': model.feature_extractor.parameters(), 'lr': 1e-3},
+                                      {'params': model.projection_mlp_1.parameters(), 'lr': 1e-3},
+                                      {'params': model.alpha, 'lr': 1e-3}])
         for epoch in range(start_epoch, stop_epoch):
             model.train()
-            model.meta_train_loop(epoch, base_loader, None)  # model are called by reference, no need to return
+            model.meta_train_loop(epoch, base_loader, optimizer)  # model are called by reference, no need to return
             model.eval()
             acc = model.test_loop(val_loader)
             if acc > max_acc:  # for baseline and baseline++, we don't use validation here so we let acc = -1
