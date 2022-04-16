@@ -76,7 +76,6 @@ class CSS(MetaTemplate):
         return self.loss_fn(scores, y_query)
 
     def pre_train_loop(self, epoch, train_loader, optimizer):
-        optimizer = torch.optim.Adam([{'params': self.feature_extractor.parameters(), 'lr': 1e-3}])
         print_freq = 10
         avg_loss = 0
         for i, (x, _) in enumerate(train_loader):
@@ -170,10 +169,6 @@ class CSS(MetaTemplate):
 
     def ssl_train_loop(self, epoch, train_loader, optimizer):
         self.train()
-        optimizer = torch.optim.Adam([{'params': self.ssl_feature_extractor.parameters(), 'lr': 1e-3},
-                                      {'params': self.projection_mlp_1.parameters(), 'lr': 1e-3},
-                                      {'params': self.projection_mlp_2.parameters(), 'lr': 1e-3},
-                                      {'params': self.prediction_mlp.parameters(), 'lr': 1e-3}, ])
         print_freq = 10
         avg_loss = 0
         for i, (x, _) in enumerate(train_loader):  # x:[N, S+Q, n_channel, h, w]
@@ -245,9 +240,6 @@ class CSS(MetaTemplate):
     def meta_train_loop(self, epoch, train_loader, optimizer):
         self.train()
         self.pre_feature_extractor = copy.deepcopy(self.feature_extractor)
-        optimizer = torch.optim.Adam([{'params': self.feature_extractor.parameters(), 'lr': 1e-3},
-                                      {'params': self.projection_mlp_1.parameters(), 'lr': 1e-3},
-                                      {'params': self.alpha, 'lr': 1e-3}])
         print_freq = 10
         avg_loss = 0
         for i, (x, _) in enumerate(train_loader):  # x:[N, S+Q, n_channel, h, w]
