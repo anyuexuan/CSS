@@ -47,3 +47,16 @@ Pytorch
 ```
 python run_css.py
 ```
+
+## Acknowledgment
+
+Our project references the codes and datasets in the following repo and papers.
+
+[CloserLookFewShot](https://github.com/wyharveychen/CloserLookFewShot)
+
+Catherine Wah, Steve Branson, Peter Welinder, Pietro Perona, and Serge Belongie. The caltechucsd birds-200-2011 dataset. 2011.
+
+Luca Bertinetto, João F. Henriques, Philip H. S. Torr, Andrea Vedaldi. Meta-learning with differentiable closed-form solvers. ICLR 2019.
+
+Oriol Vinyals, Charles Blundell, Tim Lillicrap, Koray Kavukcuoglu, Daan Wierstra. Matching Networks for One Shot Learning. NIPS 2016: 3630-3638.
+
