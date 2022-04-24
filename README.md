@@ -25,7 +25,7 @@ Pytorch
 ### mini-ImageNet
 
 - Change directory to `./filelists/miniImagenet`
-- Download files for [mini-ImageNet](https://drive.google.com/drive/folders/1x2yFyHyBblfPrR0jQgWlF3c83UHYOEzF?usp=sharing)
+- Download files for [mini-ImageNet](https://drive.google.com/file/d/1hQqDL16HTWv9Jz15SwYh3qq1E4F72UDC/view)
 - run `bash ./miniImagenet.sh`
 
 ## Running
