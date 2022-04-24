@@ -11,7 +11,7 @@ If you use the code in this repo for your work, please cite the following bib en
                Xingyu Zhao and
                Lu Zhang},
   title     = {Conditional Self-Supervised Learning for Few-Shot Classification},
-  booktitle = {Proceedings of the Thirtieth International Joint Conference on				   Artificial Intelligence, {IJCAI} 2021, Virtual Event / Montreal, 			   Canada, 19-27 August 2021},
+  booktitle = {Proceedings of the Thirtieth International Joint Conference on Artificial Intelligence, {IJCAI} 2021, Virtual Event / Montreal, Canada, 19-27 August 2021},
   pages     = {2140--2146},
   year      = {2021},
 }
