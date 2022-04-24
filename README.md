@@ -19,13 +19,12 @@ Pytorch
 ### CUB
 
 - Change directory to `./filelists/CUB`
-
 - run `bash ./download_CUB.sh`
 
 ### mini-ImageNet
 
 - Change directory to `./filelists/miniImagenet`
-- Download files for [mini-ImageNet](https://drive.google.com/file/d/1hQqDL16HTWv9Jz15SwYh3qq1E4F72UDC/view)
+- Download [mini-ImageNet](https://drive.google.com/file/d/1hQqDL16HTWv9Jz15SwYh3qq1E4F72UDC/view)
 - run `bash ./miniImagenet.sh`
 
 ## Running
