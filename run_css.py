@@ -1,5 +1,6 @@
 from utils.utils import *
 from methods.CSS import CSS
+import copy
 
 datasets = ['cifar', 'CUB', 'miniImagenet']
 
@@ -106,6 +107,7 @@ for dataset in datasets:
                     adaptation=adaptation, image_size=image_resize, classification_head=classification_head)
         if use_cuda:
             model = model.cuda()
+        model.pre_feature_extractor = copy.deepcopy(model.feature_extractor)
         outfile = os.path.join(checkpoint_dir, 'ssl_train_best.tar')
         tmp = torch.load(outfile)
         model.load_state_dict(tmp['state'])
