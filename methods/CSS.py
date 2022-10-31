@@ -239,7 +239,6 @@ class CSS(MetaTemplate):
 
     def meta_train_loop(self, epoch, train_loader, optimizer):
         self.train()
-        self.pre_feature_extractor = copy.deepcopy(self.feature_extractor)
         print_freq = 10
         avg_loss = 0
         for i, (x, _) in enumerate(train_loader):  # x:[N, S+Q, n_channel, h, w]
